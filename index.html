@@ -209,7 +209,6 @@
       </div>
 
       <button onclick="downloadImage()">Download Image</button>
-      <button onclick="sendToWhatsApp()">Send to WhatsApp</button>
     </div>
 
     <script>
@@ -244,26 +243,6 @@
           link.download = "new_year_message.png";
           link.href = canvas.toDataURL();
           link.click();
-        });
-      }
-
-      function sendToWhatsApp() {
-        // First, download the image as you already have implemented
-        const preview = document.getElementById("preview");
-        html2canvas(preview).then((canvas) => {
-          const imageDataURL = canvas.toDataURL();
-
-          // Upload the image to a server or cloud storage (e.g., Firebase, Dropbox, or your own server)
-          // For simplicity, we use the data URL (this will only work in some cases for testing purposes)
-          const imageURL = imageDataURL; // Replace with the public image URL after uploading
-
-          // Generate WhatsApp URL to share the image link
-          const message =
-            "Check out this New Year message! " + encodeURIComponent(imageURL);
-          const whatsappURL = `https://wa.me/?text=${message}`;
-
-          // Open WhatsApp with the message
-          window.open(whatsappURL, "_blank");
         });
       }
     </script>
